@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>API Docs - Gurita GPT</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav>
+  <a href="/">🐙 Gurita GPT</a>
+  <a href="/docs">API Docs</a>
+  <a href="/chat">Chat</a>
+  <a href="/admin">Admin</a>
+</nav>
+<main>
+  <h1>🐙 Gurita GPT — API Documentation</h1>
+  <p>Endpoint chat untuk Gurita GPT. Butuh API Key dari admin.</p>
+
+  <h2>POST /api/v1/chat</h2>
+  <pre>
+Headers:
+  X-Api-Key: gptj_xxxxxxxx
+  Content-Type: application/json
+
+Body:
+{
+  "message": "Siapa presiden Indonesia saat ini?",
+  "use_search": true,
+  "max_tokens": 256
+}
+  </pre>
+
+  <h3>Contoh cURL</h3>
+  <pre>
+curl -X POST http://localhost:3000/api/v1/chat \
+  -H "X-Api-Key: gptj_xxxx" \
+  -H "Content-Type: application/json" \
+  -d '{"message":"Halo","use_search":true}'
+  </pre>
+
+  <h2>POST /api/v1/conversations</h2>
+  <p>Buat percakapan baru (multi-chat).</p>
+  <pre>
+POST /api/v1/conversations
+Headers: X-Api-Key
+Body: { "title": "opsional" }
+  </pre>
+
+  <h2>POST /api/v1/conversations/:id/messages</h2>
+  <p>Kirim pesan dalam percakapan tertentu.</p>
+  <pre>
+Body:
+{
+  "message": "Hai Gurita",
+  "use_search": false,
+  "max_tokens": 256
+}
+  </pre>
+
+  <p><strong>use_search: true</strong> akan mengaktifkan pencarian internet real-time agar Gurita GPT tidak ketinggalan informasi terbaru.</p>
+</main>
+</body>
+</html>

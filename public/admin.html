@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Gurita GPT</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav>
+  <a href="/">🐙 Gurita GPT</a>
+  <a href="/docs">API Docs</a>
+  <a href="/chat">Chat</a>
+  <a href="/admin">Admin</a>
+</nav>
+<main>
+<div id="loginBox">
+  <h1>🐙 Gurita GPT — Admin Login</h1>
+  <input id="adminPass" type="password" placeholder="Owner password">
+  <button onclick="adminLogin()">Login</button>
+</div>
+
+<div id="adminPanel" style="display:none">
+  <h1>Dashboard Admin</h1>
+  <div id="stats"></div>
+
+  <h2>API Keys</h2>
+  <button onclick="createKey()">Buat API Key Baru</button>
+  <div id="keys"></div>
+
+  <h2>Persona & Karakter Gurita GPT</h2>
+  <div class="persona-editor">
+    <label>Nama AI</label>
+    <input id="pName" placeholder="Gurita GPT">
+
+    <label>Identitas</label>
+    <input id="pIdentity" placeholder="asisten AI berbasis GPT-J yang ramah">
+
+    <label>Bahasa</label>
+    <input id="pLanguage" placeholder="Bahasa Indonesia">
+
+    <label>Gaya Bicara (tone)</label>
+    <input id="pTone" placeholder="santai, hangat, sedikit humor">
+
+    <label>Sifat (satu per baris)</label>
+    <textarea id="pTraits" rows="5"></textarea>
+
+    <label>Aturan (satu per baris)</label>
+    <textarea id="pRules" rows="6"></textarea>
+
+    <label>Sapaan Awal</label>
+    <input id="pGreeting" placeholder="Halo! Saya Gurita GPT 🐙">
+
+    <button onclick="savePersona()">Simpan Persona</button>
+    <div id="personaStatus"></div>
+  </div>
+
+  <h2>Percakapan User</h2>
+  <div id="adminConversations"></div>
+
+  <h2>Owner Chat (Latih Gurita GPT)</h2>
+  <div id="ownerChat">
+    <div id="ownerMessages"></div>
+    <input id="ownerInput" placeholder="Prompt untuk melatih..." onkeydown="if(event.key==='Enter')ownerSend()">
+    <button onclick="ownerSend()">Kirim</button>
+  </div>
+</div>
+</main>
+<script src="/js/admin.js"></script>
+</body>
+</html>

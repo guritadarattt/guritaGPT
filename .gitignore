@@ -1,0 +1,16 @@
+node_modules/
+models/
+data/*.db
+data/*.db-journal
+.env
+.env.local
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Kecualikan file penting
+!data/persona.json
+!data/training_data.json

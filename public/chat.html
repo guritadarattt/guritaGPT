@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat - Gurita GPT</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav>
+  <a href="/">🐙 Gurita GPT</a>
+  <a href="/docs">API Docs</a>
+  <a href="/chat">Chat</a>
+  <a href="/admin">Admin</a>
+</nav>
+
+<div id="keyGate" class="key-gate">
+  <div class="key-box">
+    <h2>🐙 Masuk Gurita GPT</h2>
+    <p>Masukkan API Key yang kamu dapat dari admin untuk mulai chat.</p>
+    <input id="apiKeyInput" placeholder="gptj_xxxxxxxx">
+    <button onclick="saveKey()">Mulai Chat</button>
+    <div id="keyError" class="error"></div>
+  </div>
+</div>
+
+<div id="chatApp" class="chat-app" style="display:none">
+  <aside class="sidebar">
+    <button class="new-chat-btn" onclick="newChat()">+ Percakapan Baru</button>
+    <div id="convList" class="conv-list"></div>
+    <div class="sidebar-footer">
+      <button class="logout-btn" onclick="logout()">Logout / Ganti Key</button>
+    </div>
+  </aside>
+
+  <main class="chat-main">
+    <header class="chat-header">
+      <h2 id="convTitle">Pilih atau buat percakapan</h2>
+      <div class="header-actions">
+        <label class="search-toggle">
+          <input type="checkbox" id="useSearch"> 🌐 Internet
+        </label>
+      </div>
+    </header>
+
+    <div id="messages" class="messages">
+      <div class="empty-state">
+        <h3>🐙 Mulai percakapan dengan Gurita GPT</h3>
+        <p>Klik "+ Percakapan Baru" atau pilih dari daftar di kiri.</p>
+      </div>
+    </div>
+
+    <div class="input-area">
+      <input
+        id="msgInput"
+        placeholder="Tulis pesan..."
+        onkeydown="if(event.key==='Enter' && !event.shiftKey){event.preventDefault();send()}"
+      >
+      <button onclick="send()" id="sendBtn">Kirim</button>
+    </div>
+  </main>
+</div>
+
+<script src="/js/chat.js"></script>
+</body>
+</html>

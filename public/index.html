@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>🐙 Gurita GPT</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav>
+  <a href="/">🐙 Gurita GPT</a>
+  <a href="/docs">API Docs</a>
+  <a href="/chat">Chat</a>
+  <a href="/admin">Admin</a>
+</nav>
+<main>
+  <h1>🐙 Gurita GPT</h1>
+  <p>Asisten AI berbasis <strong>GPT-J-6B</strong> (ONNX Q4, auto-download)</p>
+  <p>Endpoint: <code>POST /api/v1/chat</code></p>
+  <div id="health">Checking...</div>
+</main>
+<script>
+fetch('/api/v1/health').then(r=>r.json()).then(d=>{
+  document.getElementById('health').textContent = '✅ ' + (d.name || d.model) + ' ready';
+}).catch(()=>document.getElementById('health').textContent='❌ offline');
+</script>
+</body>
+</html>
